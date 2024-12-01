@@ -101,4 +101,8 @@ defmodule MiniMercado.Catalog do
   def change_product(%Product{} = product, attrs \\ %{}) do
     Product.changeset(product, attrs)
   end
+
+  def get_product_by_barcode(barcode) do
+    Repo.get_by(Product, barcode: barcode)
+  end
 end

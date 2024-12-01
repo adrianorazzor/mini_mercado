@@ -7,6 +7,13 @@ defmodule MiniMercadoWeb.Router do
 
   scope "/api", MiniMercadoWeb do
     pipe_through :api
+
+    get "/products", Catalog.ProductController, :index
+    get "/products/:id", Catalog.ProductController, :show
+    post "/products", Catalog.ProductController, :create
+    put "/products/:id", Catalog.ProductController, :update
+    delete "/products/:id", Catalog.ProductController, :delete
+
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
